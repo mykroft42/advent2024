@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build3",
-            "program": "${workspaceFolder}/day03/bin/Debug/net8.0/day03.dll",
+            "program": "${workspaceFolder}/day03/bin/Debug/net9.0/day03.dll",
             "args": [],
             "cwd": "${workspaceFolder}/day03",
             "console": "internalConsole",

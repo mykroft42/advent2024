@@ -22,7 +22,7 @@ public static class Program
     ///
     /// </summary>
     public static Regex regex = new Regex(
-        "mul\\((\\d{1,3}),(\\d{1,3})\\)",
+        "mul\\((\\d{1,3}),(\\d{1,3})\\)|do\\(\\)|don't\\(\\)",
         RegexOptions.CultureInvariant
         | RegexOptions.Compiled
         );
@@ -31,33 +31,32 @@ public static class Program
     {
         var input = File.ReadAllLines("input.txt");
         
-        List<string> ins = new List<string>();
-        string xyz = "";
-        foreach (var x in input)
-        {
-            xyz += x;
-        }
-
-        var procs = xyz.Split("don't()").ToList();
-        ins.Add(procs[0]);
-        procs.RemoveAt(0);
-        foreach (var i in procs)
-        {
-            var p2 = i.Split("do()").ToList();
-            p2.RemoveAt(0);
-            ins.AddRange(p2);
-        }
-
         uint sum = 0;
-        foreach (var x in ins)
+        bool enable = true;
+        foreach (var x in input)
         {
             MatchCollection ms = regex.Matches(x);
             for (int i = 0; i < ms.Count; i++)
             {
                 var m = ms[i];
-                Console.Write(m.Groups[0].Value);
-                Console.WriteLine($"   mul({m.Groups[1].Value},{m.Groups[2].Value})");
-                sum += uint.Parse(m.Groups[1].Value) * uint.Parse(m.Groups[2].Value);
+                if (m.Groups[0].Value == "do()")
+                {
+                    Console.WriteLine(m.Groups[0].Value);
+                    enable = true;
+                    continue;
+                }
+                if (m.Groups[0].Value == "don't()")
+                {
+                    Console.WriteLine(m.Groups[0].Value);
+                    enable = false;
+                    continue;
+                }
+                if (enable)
+                {
+                    Console.Write(m.Groups[0].Value);
+                    Console.WriteLine($"   mul({m.Groups[1].Value},{m.Groups[2].Value})");
+                    sum += uint.Parse(m.Groups[1].Value) * uint.Parse(m.Groups[2].Value);
+                }
             }
         }
         Console.WriteLine(sum);
