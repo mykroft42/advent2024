@@ -5,33 +5,38 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: Day02 Debug",
-            "type": "dotnet",
-            "request": "launch",
-            "projectPath": "${workspaceFolder}/day02/day02.csproj"
-        },
-        {
-            "name": ".NET Core Launch (console) day02",
+            "name": ".NET Core Launch (console) day03",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/day02/bin/Debug/net9.0/day02.dll",
+            "preLaunchTask": "build3",
+            "program": "${workspaceFolder}/day03/bin/Debug/net8.0/day03.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/day02",
+            "cwd": "${workspaceFolder}/day03",
             "console": "internalConsole",
             "stopAtEntry": false
         },
-        {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/day01/bin/Debug/net9.0/day01.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/day01",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
+        // {
+        //     "name": ".NET Core Launch (console) day02",
+        //     "type": "coreclr",
+        //     "request": "launch",
+        //     "preLaunchTask": "build",
+        //     "program": "${workspaceFolder}/day02/bin/Debug/net9.0/day02.dll",
+        //     "args": [],
+        //     "cwd": "${workspaceFolder}/day02",
+        //     "console": "internalConsole",
+        //     "stopAtEntry": false
+        // },
+        // {
+        //     "name": ".NET Core Launch (console)",
+        //     "type": "coreclr",
+        //     "request": "launch",
+        //     "preLaunchTask": "build",
+        //     "program": "${workspaceFolder}/day01/bin/Debug/net9.0/day01.dll",
+        //     "args": [],
+        //     "cwd": "${workspaceFolder}/day01",
+        //     "console": "internalConsole",
+        //     "stopAtEntry": false
+        // },
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
